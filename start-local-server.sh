@@ -5,12 +5,12 @@ LOGFILE="/home/pi/local-server/startup.log"
   cd /home/pi/local-server || { echo "❌ Failed to cd"; exit 1; }
 
   echo "🔄 Pulling latest code from GitHub..."
-  git reset --hard HEAD
-  git pull
+  /usr/bin/git reset --hard HEAD
+  /usr/bin/git pull
 
   echo "🐳 Rebuilding Docker container..."
-  docker compose down
-  docker compose up --build -d
+  /usr/bin/docker compose down
+  /usr/bin/docker compose up --build -d
 
   echo "✅ Startup complete at $(date)"
 } >> "$LOGFILE" 2>&1
