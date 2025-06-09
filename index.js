@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Hello World! We now have an auto-start script");
+    res.send("Hello World! We now have an auto-start script. And it should now start on reboot");
 });
 
 app.listen(3000, (e) => {
