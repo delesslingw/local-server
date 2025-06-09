@@ -1,0 +1,14 @@
+{
+    "name": "local-server",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ."
+    },
+    "author": "delesslin",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^5.1.0"
+    }
+}
