@@ -1,6 +1,8 @@
+const api = require("./api");
 const express = require("express");
 const app = express();
-
+app.use(express.json());
+app.use("/api", api);
 app.get("/", (req, res) => {
     res.send("Fresh, beautiful, automated HELLO WORLD");
 });
