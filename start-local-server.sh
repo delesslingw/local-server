@@ -1,5 +1,5 @@
 #!/bin/bash
-LOGFILE="/home/pi/local-server/startup.log"
+LOGFILE="/home/pi/startup.log"
 {
   echo "=== Startup at $(date) ==="
   cd /home/pi/local-server || { echo "❌ Failed to cd"; exit 1; }
