@@ -2,8 +2,18 @@ import express from "express";
 import Entry from "../../db/Entry.js";
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.send("GET /api/spanish");
+router.get("/", async (req, res) => {
+    try {
+        const entries = await Entry.find();
+        res.send(entries);
+    } catch (e) {
+        console.error("❌ Failed to save entry:", e);
+        res.status(500).send({
+            status: "error",
+            message: "Failed to GET entries",
+            error: e.message || e.toString(),
+        });
+    }
 });
 router.post("/", async (req, res) => {
     const params = req.body;
