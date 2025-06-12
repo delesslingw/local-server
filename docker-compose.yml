@@ -11,6 +11,13 @@ services:
         depends_on:
             - mongodb
         command: npm start
+    client:
+        build:
+            context: ./client
+        ports:
+            - "80:80"
+        depends_on:
+            - server
     mongodb:
         image: mongo:4.4.18
         ports:
