@@ -1,10 +1,10 @@
 services:
-    app:
+    server:
         build:
-            context: .
-            dockerfile: Dockerfile
+            context: ./server # <-- new location for Dockerfile
+            dockerfile: Dockerfile # optional if it's named Dockerfile by default
         ports:
-            - "3000:3000"
+            - "3000:3000" # keep this if your Express app runs on 3000
         environment:
             - PORT=3000
             - MONGO_URI=mongodb://mongodb:27017/test-db
