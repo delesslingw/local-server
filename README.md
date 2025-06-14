@@ -35,6 +35,29 @@
 -   [x] Create minimal react frontend
 -   [ ] Add tailwind-css and shadcn
 
+## Setup Reverse Poxy
+
+-   [ ] `sudo apt update`
+-   [ ] `sudo apt install nginx`
+-   [ ] `sudo nano /etc/nginx/sites-available/reverse-proxy`
+        ```nginx
+        server {
+        listen 80;
+        server_name api.pi;
+
+              location / {
+                  proxy_pass http://localhost:3000;
+                  proxy_set_header Host $host;
+                  proxy_set_header X-Real-IP $remote_addr;
+              }
+
+          }
+    ```
+- [ ] `sudo ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites-enabled/`
+- [ ] `sudo nginx -t`
+
+
+
 ## Phase 2
 
 -   [ ] Update es practice script to write DB to MongoDB
