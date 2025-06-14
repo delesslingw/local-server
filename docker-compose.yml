@@ -15,7 +15,7 @@ services:
         build:
             context: ./client
         ports:
-            - "80:80"
+            - "81:80"
         depends_on:
             - server
     mongodb:

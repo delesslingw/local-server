@@ -26,13 +26,17 @@
       - `@reboot /home/pi/start-local-server.sh`
       - `chmod +x /home/pi/start-local-server.sh`
 
-
-
 ## Phase 1
 
 -   [x] Setup MongoDB
     -   Adjust docker-compose
     -   add endpoints in router
 -   [x] Is there a prebuilt MongoDB dashboard?
+-   [x] Create minimal react frontend
+-   [ ] Add tailwind-css and shadcn
+
+## Phase 2
+
 -   [ ] Update es practice script to write DB to MongoDB
--   [ ] Create react frontend
+-   [ ] Create frontend display for infinite notecards
+-   [ ] Add DB for user data
