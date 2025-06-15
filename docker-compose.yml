@@ -34,7 +34,6 @@ services:
             ME_CONFIG_MONGODB_SERVER: mongodb
             ME_CONFIG_MONGODB_PORT: 27017
             ME_CONFIG_BASICAUTH: "false"
-            ME_CONFIG_SITE_BASEURL: /db/
         depends_on:
             - mongodb
 
