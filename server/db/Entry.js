@@ -36,8 +36,10 @@ const EnglishSchema = new mongoose.Schema(
 const EntrySchema = new mongoose.Schema({
     spanish: { type: String, required: true },
     english: { type: EnglishSchema, required: true },
-    frequency: { type: Number, required: true },
+    frequency: { type: Number, required: true, index: true },
 });
+
+EntrySchema.index({frequency: -1})
 
 const Entry = mongoose.model("Entry", EntrySchema);
 

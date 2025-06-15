@@ -1,9 +1,23 @@
 import mongoose from "mongoose";
 import api from "./api/index.js";
 import express from "express";
+import User from "./db/User.js";
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/test-db";
 async function main() {
     await mongoose.connect(MONGO_URI);
+    const users = await User.find({});
+    if (!users.length) {
+        const usr = await User.create({
+            name: "Roo",
+            knownEntries: [],
+        });
+        console.log("Successfully created: ", usr);
+    } else {
+        users.forEach((usr) => console.log(usr));
+    }
+    // ======
+    // SERVER
+    // ======
     const app = express();
     app.use(express.json());
     app.use("/api", api);
