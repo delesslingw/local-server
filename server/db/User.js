@@ -92,14 +92,15 @@ UserSchema.methods.applyDecay = function () {
 };
 
 /**
- * Returns the next set of entries due for review, sorted by lowest confidence.
+ * Returns the next set of entries due for review or low-confidence, sorted by lowest confidence.
  * @param {number} [limit=10]
  * @returns {Array} Array of KnownEntry documents
  */
 UserSchema.methods.getNextReviewBatch = function (limit = 10) {
     const now = Date.now();
+
     return this.knownEntries
-        .filter((entry) => entry.nextDue.getTime() <= now)
+        .filter((entry) => entry.nextDue.getTime() <= now || entry.confidence < 0.6)
         .sort((a, b) => a.confidence - b.confidence)
         .slice(0, limit);
 };
