@@ -11,7 +11,7 @@
  *
  */
 export default (url) => {
-    const rootUrl = import.meta.env.VITE_API_BASE || "";
+    const rootUrl = import.meta.env.VITE_API_BASE.trim() || "";
     console.log(rootUrl, url);
-    return rootUrl + url;
+    return `${rootUrl}${url}`;
 };
