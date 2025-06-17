@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import api from "./api/index.js";
 import express from "express";
 import User from "./db/User.js";
+import cors from "cors";
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/test-db";
 async function main() {
     await mongoose.connect(MONGO_URI);
@@ -19,6 +20,7 @@ async function main() {
     // SERVER
     // ======
     const app = express();
+    app.use(cors());
     app.use(express.json());
     app.use("/api", api);
     app.get("/", (req, res) => {
