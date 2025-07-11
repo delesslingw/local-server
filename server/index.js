@@ -20,6 +20,7 @@ async function main() {
     // SERVER
     // ======
     const app = express();
+    // WARNING: change if it is migrated outside of LAN/tailscale
     app.use(cors());
     app.use(express.json());
     app.use("/api", api);
